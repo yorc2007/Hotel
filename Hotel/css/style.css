@@ -1,0 +1,172 @@
+/* Variables de color */
+:root {
+    --primary: #1a2a3a;
+    --accent: #c5a059;
+    --white: #ffffff;
+    --gray: #f4f4f4;
+    --text: #333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    scroll-behavior: smooth;
+}
+
+.container { padding: 80px 10%; }
+.section-title { text-align: center; margin-bottom: 40px; font-family: 'Playfair Display'; font-size: 2.5rem; }
+
+/* Navbar */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 10%; background: var(--white);
+    position: fixed; width: 100%; top: 0; transition: 0.4s; z-index: 1000;
+}
+.navbar.sticky { padding: 10px 10%; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 30px; }
+.nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; }
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+}
+.hero h1 { font-family: 'Playfair Display'; font-size: 4rem; margin-bottom: 20px; }
+
+/* Botones */
+.btn-primary { background: var(--accent); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; }
+.btn-secondary { border: 2px solid white; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-right: 15px; }
+
+/* Cards */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.card { background: var(--gray); padding: 40px; text-align: center; border-radius: 10px; transition: 0.3s; }
+.card:hover { transform: translateY(-10px); background: var(--white); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
+
+/* Footer */
+footer { background: var(--primary); color: white; padding: 50px 10%; text-align: center; }
+
+.whatsapp-float {
+    position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+    background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
+    font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100;
+}
+.my-float { margin-top: 16px; }
+/* --- Sección de Reseñas --- */
+.bg-light { background: #f9f9f9; padding: 60px 0; }
+.reviews-section { text-align: center; }
+
+/* Grid para las reseñas horizontales */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Crea 3 columnas si hay espacio */
+    gap: 30px; /* Espacio entre cajas */
+    margin-top: 40px;
+}
+
+/* Diseño de la caja de reseña individual */
+.review-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px; /* Bordes redondeados suaves */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra suave para darle profundidad */
+    border-left: 5px solid #c5a059; /* El borde de acento Dorado a la izquierda */
+    text-align: left; /* Volvemos a texto alineado a la izquierda */
+    transition: 0.3s; /* Para la animación del hover */
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.review-box:hover {
+    transform: translateY(-5px); /* Se eleva un poco */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* La sombra se hace más pronunciada */
+}
+
+/* Encabezado de la reseña: Estrellas y Fuente */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.stars { color: #f1c40f; font-size: 1.2rem; } /* Color de estrellas amarillo */
+.source { color: #777; font-size: 0.9rem; } /* Texto de fuente "Google" */
+.source i { color: #4285F4; margin-right: 5px; } /* Icono de Google azul */
+
+/* Estilo del texto de la reseña */
+.review-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 300;
+    margin-bottom: 15px;
+    font-style: italic; /* Opcional: texto en cursiva para que parezca una cita */
+}
+
+/* Estilo del nombre del reseñador */
+.reviewer-name {
+    display: block;
+    font-weight: 600;
+    color: #1a2a3a; /* Azul pizarra primario */
+    font-size: 1.1rem;
+}
+
+/* Asegurar que el botón flotante de WhatsApp se mantenga arriba */
+.whatsapp-float {
+    z-index: 101; /* Un poco más alto para que no lo tapen las cajas */
+}
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.services-slider {
+    display: flex;
+    overflow-x: auto; /* Permite scroll con el dedo en móvil */
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 0;
+    scrollbar-width: none; /* Oculta la barra en Firefox */
+}
+
+.services-slider::-webkit-scrollbar { display: none; } /* Oculta barra en Chrome/Safari */
+
+.services-slider .card {
+    min-width: 250px; /* Tamaño fijo para que entren varios en fila */
+    flex: 0 0 auto;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+/* Flechas Interactivas */
+.slider-arrow {
+    position: absolute;
+    background: var(--accent);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow:hover { background: var(--primary); transform: scale(1.1); }
+.left-arrow { left: 0; }
+.right-arrow { right: 0; }
+
+/* Ocultar flechas en móviles para que usen el dedo */
+@media (max-width: 768px) {
+    .slider-arrow { display: none; }
+    .slider-container { padding: 0; }
+}
